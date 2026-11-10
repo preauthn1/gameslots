@@ -1,0 +1,109 @@
+生成静态文件
+N minutes   1 Min
+cd /www/wwwroot/api  && php think taskmin
+
+获取平台注单
+N minutes   5 Min
+cd /www/wwwroot/api  && php think thirdtask
+
+返水和返佣统计
+STOP
+Daily   17 Hour 0 Min
+cd /www/wwwroot/api  && php think jstask
+
+返佣自动发放
+STOP
+Monthly 2 Day 2 Hour 40 Min
+cd /www/wwwroot/api  && php think jspaytask
+
+用户游戏统计
+N minutes   2 Min
+cd /www/wwwroot/api   && php think UserReport
+
+更新当天运营总表
+N minutes   5 Min
+cd /www/wwwroot/api   && php think updatereport 1
+
+更新前2天运营总表
+Daily   1 Hour 0 Min
+cd /www/wwwroot/api  && php think updatereport 2
+
+获取og游戏列表
+STOP
+Daily   2 Hour 30 Min
+cd /www/wwwroot/api && php think gamelisttask
+
+定期基金结算
+STOP
+Daily   2 Hour 30 Min
+cd /www/wwwroot/api && php think updatefund 4
+
+基金前2天报表
+STOP
+Daily   2 Hour 55 Min
+cd /www/wwwroot/api && php think updatefund 2
+
+基金前报表
+STOP
+N minutes   5 Min
+cd /www/wwwroot/api && php think updatefund 1
+
+留存率报表
+Daily   0 Hour 1 Min
+cd /www/wwwroot/api && php think remain 1
+
+新返佣-流水统计
+Daily   1 Hour 0 Min
+cd /www/wwwroot/api  && php think jstaskwater
+
+新返佣-流水结算
+Daily   2 Hour 0 Min
+cd /www/wwwroot/api  && php think jspaytaskwater
+
+彩票开奖
+N minutes   1 Min
+cd /www/wwwroot/api && php think lottery:draw
+
+重新统计third_stats_users表
+Daily   0 Hour 10 Min
+cd /www/wwwroot/api && php think re:stat:user
+
+重新统计third_stats_global表
+Daily   0 Hour 10 Min
+cd /www/wwwroot/api && php think re:stat:global
+
+在线用户
+N minutes   1 Min
+cd /www/wwwroot/api && php think user:online
+
+会员报表
+Daily   0 Hour 5 Min
+cd /www/wwwroot/api && php think public 4
+
+客服链接访问统计
+N minutes   5 Min
+cd /www/wwwroot/api && php think handle:url
+
+推送任务完成消息
+N minutes   1 Min
+cd /www/wwwroot/api && php think push:task
+
+注单关联时间任务
+N minutes   30 Min
+cd /www/wwwroot/api && php think bet:time
+
+导出任务
+N minutes   1 Min
+cd /www/wwwroot/api && php think reportexport
+
+游戏报表
+N minutes   1 Min
+cd /www/wwwroot/api && php think third:reportCache
+
+热表数据转移
+N minutes   1 Min
+cd /www/wwwroot/api  && php think jstaskhot
+
+切表任务
+Daily   4 Hour 0 Min
+cd /www/wwwroot/api  && php think jscut

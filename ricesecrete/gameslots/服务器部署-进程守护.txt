@@ -1,0 +1,15 @@
+[program:任务监听]
+command=php think queue:work --queue task
+directory=/www/wwwroot/api/
+
+[program:人工添加]
+command=php think queue:work --queue import
+directory=/www/wwwroot/api/
+
+[program:vip自动升级]
+command=php think queue:work --queue upgrade
+directory=/www/wwwroot/api/
+
+[program:活动任务]
+command=php think queue:work --queue activity
+directory=/www/wwwroot/api/

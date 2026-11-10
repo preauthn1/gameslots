@@ -1,0 +1,42 @@
+@import "./transition";
+@import "./element-plus";
+@import "./sidebar";
+@import "./dark";
+
+/* 自定义全局 CssVar */
+:root {
+  /* 左侧菜单展开、收起动画时长 */
+  --pure-transition-duration: 0.3s;
+}
+
+/* 灰色模式 */
+.html-grey {
+  filter: grayscale(100%);
+}
+
+/* 色弱模式 */
+.html-weakness {
+  filter: invert(80%);
+}
+
+.el-tag+.el-tag {
+  margin-left: 3px;
+}
+
+.el-link2 {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.el-table th.el-table__cell {
+  user-select: text !important;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: #0bb142;
+}

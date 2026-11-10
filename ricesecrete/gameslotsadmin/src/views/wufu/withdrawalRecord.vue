@@ -1,0 +1,199 @@
+<script setup lang="tsx">
+import { reactive,ref,getCurrentInstance,defineAsyncComponent, computed } from "vue";
+import { withdrawalRecordList } from "@/api/user";
+import { message } from "@/utils/message";
+import { formaTime } from '@/utils/global'
+import { transformI18n } from "@/plugins/i18n";
+import uploadImage from '@/components/comm/uploadImage.vue'
+import { hasAuth } from '@/router/utils';
+import { Sign } from "crypto";
+import menuList from "@/components/menu/menu.vue"
+const { proxy } = getCurrentInstance();
+defineOptions({
+  name: 'withdrawalRecordList'
+})
+
+const props = defineProps({
+  id:String,
+})
+const columns = [//TableColumnList
+  {
+    type: "selection",
+    align: "left",
+    fixed: "left",
+  },
+  {
+    label: transformI18n("UID"),
+    prop: "uid",
+  },
+  {
+    label: transformI18n("用户名"),
+    prop: "username",
+  },
+  {
+    label: transformI18n("五福名称"),
+    prop: "w_name",
+  },
+  {
+    label: transformI18n("卡片名称"),
+    prop: "c_name",
+  },
+  {
+    label: transformI18n("金额"),
+    prop: "amount",
+  },
+  {
+    label: transformI18n("流水"),
+    prop: "savings",
+  },
+  {
+    label: transformI18n("时间"),
+    prop: "create_time",
+  },
+];
+
+//搜索的数据，key 值 跟 pagination key 一样
+const searchList = {
+  uid:{
+    type: 'input',
+    label:'UID',
+    placeholder:'UID',
+    prop: 'uid',
+    value: '',
+  },
+  w_name:{
+    type: 'input',
+    label:'五福名称',
+    placeholder:'五福名称',
+    prop: 'w_name',
+    value: '',
+  },
+  c_name:{
+    type: 'input',
+    label:'卡片名称',
+    placeholder:'卡片名称',
+    prop: 'c_name',
+    value: '',
+  },
+  search:{
+    type: 'button',
+    value: '搜索',
+    handle: 'search',
+    prop:'search'
+  },
+  export:{
+    type: 'button',
+    value:'导出',
+    handle: 'export',
+    prop: 'export',
+  }
+}
+const searchListBox = reactive({
+  searchList
+})
+
+
+const pagination = reactive({
+  page: 1,//页数
+  limit: 12,//条数
+  total: 0,//总数
+  uid:'',//uid
+  w_name: '',//五福名称
+  c_name: '',//卡片名称
+  export:0,
+});
+
+const dataList: any = [];
+const tableData = reactive({ dataList });
+//获取列表数据
+init();
+function init(query?: object) {
+  withdrawalRecordList(pagination).then((res:any) => {
+    tableData.dataList = res.data.data
+    pagination.total = res.data.total
+    // pagination.page = res.data.current_page
+  })
+}
+const onPageSizeChange = (size: number) => {
+  pagination.limit = size;
+  pagination.page = 1;
+  init(pagination);
+};
+const onCurrentChange = (current: number) => {
+  pagination.page = current;
+  init(pagination);
+};
+//导出
+const handleExport = () => {
+  pagination.export = 1;
+  withdrawalRecordList(pagination).then((res: any) => {
+    console.log(res)
+    if (res.code == 1) {
+      handleDownloadList()
+    }else {
+      message(res.msg, { type: 'error' });
+    }
+  })
+  pagination.export = 0;
+}
+//导出弹窗列表
+const downloadListShow = ref(false);
+function handleDownloadList() {
+  downloadListShow.value = true;
+};
+//输入框的数据
+const handleCurrentChange = ({ value,index }) => {
+  searchListBox.searchList[index].value = value;
+}
+//点击确定
+const handleBtn = () => {
+  //搜索列表 没有日期的写法
+  for (const key in pagination) {
+    if (key == searchList[key]?.prop) {
+      pagination[key] = searchList[key].value;
+    }
+  }
+  pagination.page = 1;
+  init(pagination);
+}
+</script>
+
+<template>
+  <div>
+    <el-dialog v-model="downloadListShow" :title="$t('下载列表')" width="80%" heith="100%">
+      <component
+        :is="
+          defineAsyncComponent(() =>
+            import('@/views/report/exportreports.vue')
+          )
+        "
+      />
+    </el-dialog>
+    <menuList />
+    <commSerach  @export="handleExport" @search="handleBtn" @currentChange="handleCurrentChange"  :list="searchListBox.searchList"/>
+    <pure-table :data="tableData.dataList" width="100%"   :columns="columns" />
+    <div class="btmNav">
+      <el-pagination
+        class="float-right"
+        v-model:currentPage="pagination.page"
+        :page-size="pagination.limit"
+        :total="pagination.total"
+        :page-sizes="[12, 24, 36, 50, 100]"
+        :background="true"
+        layout="total, sizes, prev, pager, next, jumper"
+        @size-change="onPageSizeChange"
+        @current-change="onCurrentChange"
+      />
+    </div>
+    <!-- <commTable  @handleSelectionChange="handleSelectionChange"  :columns="columns"  :data="tableDataMore" ></commTable> -->
+  </div>
+</template>
+<style scoped>
+.btmNav{
+  padding-top:10px;
+  padding-bottom:10px;
+}
+.line-box{
+  margin-bottom: 10px;
+}
+</style>

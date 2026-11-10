@@ -1,0 +1,15 @@
+/dist
+/node_modules
+/.claude
+.editorconfig
+.prettierrc
+/temp_frames
+tsconfig.tsbuildinfo
+/video_evidence
+/_inspect_video.cjs
+/_make_contact_sheet.cjs
+vlc-help.txt
+/line_effect_dense
+/line_effect_evidence
+/captured-mahjong-audio
+/tsconfig.tsbuildinfo

@@ -1,0 +1,278 @@
+.turntable-wapper {
+  --color1: var(--text-color7);
+  --color2: var(--text-color5);
+  --color3: var(--text-color1);
+  width: 296px;
+  height: 296px;
+  border-radius: 50%;
+  // background-color: var(--text-color1);
+  box-shadow: 0 0 2px 2px var(--text-color5);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("@/assets/images/pdd_t_border.png");
+  background-size: cover;
+
+
+  // &::before,
+  // &::after {
+  //   position: absolute;
+  //   content: '';
+  //   width: 100%;
+  //   height: 100%;
+  //   top: 0;
+  //   left: 0;
+  //   background: url("@/assets/images/light_border.png");
+  //   background-size: cover;
+
+  // }
+
+  // &::before {
+  //   transform: rotate(-45deg);
+  //   animation: flash-on 1s infinite;
+  // }
+
+  // &::after {
+  //   animation: flash-off 1s infinite;
+  // }
+}
+
+@keyframes flash-on {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes flash-off {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+
+.t-border {
+  width: 112%;
+  animation: 20s t-border infinite linear;
+  pointer-events: none;
+}
+
+
+@keyframes t-border {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.border2 {
+  // width: 89%;
+  // height: 89%;
+  // border-radius: 50%;
+  // background-color: var(--bg-color6);
+  // position: absolute;
+}
+
+.content {
+  // background-color: var(--text-color7);
+  position: relative;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  transition: all 5s;
+  background-image: url("https://slotsdny.s3.dualstack.ap-southeast-1.amazonaws.com/storage/images/pdd_turntable.png");
+  background-size: cover;
+  z-index: -1;
+}
+
+@keyframes circular {
+  0% {
+    background: var(--text-color7);
+
+  }
+
+  100% {
+    background: #FFF;
+  }
+}
+
+.btn {
+  width: 60px;
+  height: 70px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1;
+  filter: grayscale(0);
+  transition: .4s filter;
+  z-index: 2;
+
+
+  img {
+    width: 60px;
+    height: auto;
+    top: -17px;
+    position: absolute;
+    left: 0;
+  }
+
+  .btn-text {
+    position: relative;
+    z-index: 2;
+
+    .num {
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .unit {
+      font-size: 9px;
+    }
+
+    .btn-tip {
+      font-size: 10px;
+      font-weight: bold;
+      margin-top: 2px;
+    }
+  }
+}
+
+.btn-disabled {
+  pointer-events: none;
+}
+
+
+.circular-box {
+  position: absolute;
+
+  &:nth-child(2n-1) {
+    .circular {
+      animation-delay: 0.5s;
+    }
+  }
+}
+
+.circular {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--text-color7);
+  box-shadow: 0 0 2px #FFF inset, 0 2px 4px rgba(0, 0, 0, .6);
+  transform: translateY(-122px);
+  animation: circular 1s infinite;
+}
+
+@keyframes circular {
+  0% {
+    background: var(--text-color7);
+
+  }
+
+  100% {
+    background: #FFF;
+  }
+}
+
+
+
+
+
+.list {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.list-item {
+  width: 100%;
+  position: absolute;
+  height: 50%;
+  left: 50%;
+  transform-origin: center bottom;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-bottom: 8%;
+  font-size: 15px;
+  color: #f2af4d;
+}
+
+.num {
+  font-weight: bold;
+}
+
+.list-item:nth-child(2n) {
+  color: #3f8538;
+}
+
+// .list-item:nth-child(3n+1) {
+//   color: #3f8538;
+
+// }
+
+.money-icon {
+  width: 30px;
+}
+
+
+
+.active-icon {
+  width: 90px;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  animation: active-icon 1.5s 1;
+}
+
+@keyframes active-icon {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  40% {
+    opacity: 0;
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.amount-box {
+  display: flex;
+  font-weight: bold;
+  font-size: 14px;
+}

@@ -1,0 +1,108 @@
+.tab-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: 6px;
+  filter: grayscale(100%);
+}
+
+.tab-icon-old {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  margin-bottom: 6px;
+  filter: grayscale(100%);
+}
+
+.tab-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+
+:deep(.van-tabs--line) {
+  --van-tabs-line-height: 62px;
+
+  .van-tabs__line {
+    display: none;
+  }
+}
+
+.MM {
+  .van-tabs--line {
+    --van-tabs-line-height: 82px;
+
+    span {
+      display: -webkit-box;
+      /* Safari */
+      -webkit-line-clamp: 2;
+      /* Safari and Chrome */
+      -webkit-box-orient: vertical;
+      /* Safari and Chrome */
+      overflow: hidden;
+    }
+  }
+}
+
+:deep(.van-tab--active) {
+  .tab-icon {
+    filter: grayscale(0);
+  }
+}
+
+.tabs-none {
+  :deep(.van-tab--active) {
+    font-weight: 400;
+    color: var(--van-tab-text-color);
+
+    .tab-icon {
+      filter: grayscale(100%);
+    }
+  }
+}
+
+.container {
+  padding-top: 75px;
+  padding-bottom: 15px;
+}
+
+.MM {
+  .container {
+    padding-top: 95px;
+  }
+}
+
+.tip {
+  font-size: 12px;
+  text-align: center;
+  padding: 20px 0 10px;
+  color: var(--text-color6);
+}
+
+.btn {
+  background: var(--bg-color2);
+  color: var(--text-color4);
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.tabs {
+  position: fixed;
+  width: 100%;
+  top: 46px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 60px;
+  background-color: red;
+  /* 使导航垂直排列 */
+}
+
+.provider-name {
+  font-size: 12px;
+  margin-bottom: 20px;
+  color: var(--text-color4);
+}

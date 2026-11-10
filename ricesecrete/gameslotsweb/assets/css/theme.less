@@ -1,0 +1,141 @@
+// 自定义主题色
+:root {
+  --page-bg-color: #0C913F;
+  --base-text-color: #FFFFFF;
+
+  --text-color1: #FEE001;
+  --text-color2: #23A8E8;
+  --text-color3: #87D1A2;
+  --text-color4: #C2C2C2;
+  --text-color5: #78E822;
+  --text-color6: #fff;
+  --text-color7: #E8E123;
+  --text-color8: #E85523;
+
+  --border-color1: #232323;
+  --border-color2: #fff;
+
+  --bg-color1: #058536;
+  --bg-color2: #058536;
+  --bg-color3: linear-gradient(to right, var(--text-color1), var(--text-color5));
+  --bg-color4: #058536;
+  --bg-color5: #E8233B;
+  --bg-color6: #058536;
+
+  --btn-bg-color1: var(--bg-color4);
+  --input-bg-color: var(--bg-color1);
+  --input-active-border-color: var(--text-color5);
+}
+
+// ui主题色 挂在body上提升css选择权重
+body {
+  --van-loading-text-color: #fff;
+  --van-list-text-color: #fff;
+  --van-button-default-background: var(--bg-color3);
+  --van-button-border-width: 0;
+  --van-button-default-color: var(--base-text-color);
+  --van-button-small-height: 35px;
+  --van-button-small-font-size: 13px;
+  --van-button-mini-height: 30px;
+  --van-button-mini-font-size: 12px;
+  --van-button-mini-padding: 0 8px;
+  --van-button-radius: 12px;
+
+  --van-nav-bar-icon-color: var(--base-text-color);
+  --van-nav-bar-text-color: var(--base-text-color);
+  --van-nav-bar-background: var(--page-bg-color);
+  --van-nav-bar-title-text-color: var(--base-text-color);
+  --van-cell-background: var(--page-bg-color);
+  --van-cell-horizontal-padding: 0;
+  --van-field-label-color: var(--base-text-color);
+  --van-field-input-text-color: var(--base-text-color);
+  --van-field-placeholder-text-color: #4B4B4B;
+  --van-cell-text-color: var(--text-color4);
+  --van-notice-bar-padding: 0;
+  --van-search-padding: 0;
+  --van-search-label-padding: 0;
+  --van-search-action-text-color: var(--base-text-color);
+  --van-search-left-icon-color: var(--text-color5);
+  --van-search-content-background: transparent;
+  --van-search-background: transparent;
+  --van-padding-sm: 8px;
+  --van-search-input-height: 36px;
+
+  --van-tab-active-text-color: var(--base-text-color);
+
+  --van-popup-background: var(--bg-color4);
+
+  --van-action-sheet-item-background: var(--bg-color2);
+  --van-action-sheet-item-text-color: var(--base-text-color);
+  --van-action-sheet-cancel-padding-color: var(--page-bg-color);
+  --van-action-sheet-cancel-text-color: var(--text-color4);
+  --van-action-sheet-item-font-size: 14px;
+  --van-active-color: var(--bg-color4);
+  --van-popup-round-radius: 15px;
+  --van-popup-close-icon-color: var(--base-text-color);
+  --van-progress-color: var(--text-color5);
+  --van-progress-pivot-background: var(--van-progress-color);
+  --van-progress-background: var(--bg-color1);
+  --van-progress-height: 6px;
+
+  --van-dialog-background: var(--bg-color4);
+  --van-text-color: var(--base-text-color);
+  --van-action-bar-background: transparent;
+  --van-action-bar-button-danger-color: var(--bg-color3);
+  --van-action-bar-button-warning-color: var(--bg-color2);
+  --van-tabs-bottom-bar-color: var(--bg-color3);
+  --van-tabs-nav-background: var(--btn-bg-color1);
+  --van-tabs-line-height: 50px;
+
+  --van-sidebar-selected-border-color: var(--text-color5);
+  --van-sidebar-selected-background: var(--text-color5);
+  --van-sidebar-background: var(--bg-color2);
+  --van-sidebar-selected-text-color: var(--base-text-color);
+  --van-sidebar-text-color: var(--base-text-color);
+
+  --van-pagination-item-default-color: var(--text-color5);
+  --van-pagination-item-disabled-background: var(--bg-color1);
+  --van-pagination-background: var(--bg-color1);
+  --van-pagination-item-width: 30px;
+  --van-pagination-height: 30px;
+  --van-pagination-item-disabled-color: var(--text-color5);
+  --van-border-color: var(--page-bg-color);
+
+  --van-picker-background: var(--input-bg-color);
+  --van-picker-confirm-action-color: var(--base-text-color);
+  --van-picker-option-text-color: var(--base-text-color);
+  --van-picker-mask-color: linear-gradient(180deg, var(--input-bg-color), rgba(255, 255, 255, .4)), linear-gradient(0deg, var(--input-bg-color), rgba(255, 255, 255, .4));
+  --van-field-right-icon-color: var(--base-text-color);
+
+  .van-tab-btn {
+    --van-tab-text-color: var(--base-text-color);
+    --van-tabs-nav-background: transparent;
+    --van-tabs-line-height: 38px;
+  }
+
+  --van-empty-description-margin-top:0;
+  --van-empty-image-size:80px;
+  --van-empty-description-font-size:12px;
+  --van-empty-description-color:var(--text-color3);
+  --van-empty-padding:100px 0;
+  --van-slider-bar-height:5px;
+  --van-slider-inactive-background:var(--page-bg-color);
+  --van-slider-active-background:var(--text-color5);
+  --van-slider-button-background:var(--text-color6);
+  --van-slider-button-width:16px;
+  --van-slider-button-height:16px;
+
+  --van-calendar-background:var(--bg-color4);
+  --van-calendar-selected-day-background:var(--bg-color3);
+  --van-button-primary-background:var(--bg-color3);
+
+  --van-calendar-month-mark-color:rgba(255, 255, 255, .2);
+  --van-image-placeholder-background:var(--bg-color1);
+  --van-image-loading-icon-color:var(--text-color3);
+
+  --van-radio-checked-icon-color:var(--text-color1);
+  --van-uploader-upload-background:var(--bg-color2);
+  --van-uploader-icon-color:var(--text-color6);
+  --van-uploader-upload-active-color:var(--bg-color2);
+  --van-radio-border-color:var(--border-color2);
+}

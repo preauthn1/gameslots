@@ -1,0 +1,153 @@
+.van-popup--center {
+  max-width: 100%;
+}
+
+.wapper {
+  width: 100%;
+  // padding: 32px 26px 47px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  padding-top: 40px;
+  user-select: none;
+}
+
+.pdd_bg {
+  width: 100%;
+  height: auto;
+}
+
+.tiger_img {
+  position: absolute;
+  width: 30%;
+  height: auto;
+  left: 0;
+  bottom: 8%;
+  z-index: 2;
+  animation: 8s transfer_img infinite linear;
+}
+
+.rabbit_img {
+  position: absolute;
+  width: 48%;
+  height: auto;
+  right: -15%;
+  bottom: 11%;
+  z-index: 2;
+  animation: 8s transfer_img2 infinite linear;
+}
+
+@keyframes transfer_img {
+  0% {
+    transform: translateY(0%);
+  }
+
+  15% {
+    transform: translateY(-7%);
+  }
+
+  25% {
+    transform: translateY(-3%);
+  }
+
+  50% {
+    transform: translateY(-6%);
+  }
+
+  75% {
+    transform: translateY(0);
+  }
+
+  85% {
+    transform: translateY(3%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes transfer_img2 {
+  0% {
+    transform: translate(0%, 0%);
+  }
+
+  15% {
+    transform: translate(-6%, -3%);
+  }
+
+  25% {
+    transform: translate(-2%, 0%);
+  }
+
+  50% {
+    transform: translate(-4%, -1%);
+  }
+
+  75% {
+    transform: translate(0, -1%);
+  }
+
+  85% {
+    transform: translate(3%, -1%);
+  }
+
+  100% {
+    transform: translate(0);
+  }
+}
+
+.pdd_turntable {
+  position: absolute;
+  width: 100%;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.money-icon {
+  width: 31px;
+  margin-right: 6px;
+}
+
+.title-wapper {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 8px 0;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+  background: rgba(83, 178, 85, .5);
+}
+
+.pdd_tips_wrap {
+  position: absolute;
+  bottom: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+}
+
+.bottom-tip {
+  text-align: center;
+  text-shadow: 3px 5px 0px rgba(15, 9, 13, 0.23);
+  background: linear-gradient(0deg, #FACC22 0%, #F83600 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 18px;
+  font-weight: bold;
+}

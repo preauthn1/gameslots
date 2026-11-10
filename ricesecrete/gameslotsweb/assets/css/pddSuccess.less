@@ -1,0 +1,156 @@
+.box {
+  width: 315px;
+  overflow: hidden;
+  padding-bottom: 30px;
+}
+
+.box-container {
+  padding: 0 26px;
+}
+
+.header {
+  width: 315px;
+  background: var(--bg-color1);
+  border-radius: 0 0 20% 20%;
+  position: relative;
+  padding: 36px 25px 30px;
+
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -8px;
+    border-radius: inherit;
+    border: 4px dotted var(--text-color5);
+  }
+}
+
+.btn {
+  background: var(--van-button-default-background);
+  color: var(--base-text-color);
+  font-weight: bold;
+  margin-top: -20px !important;
+  display: block;
+}
+
+.money-icon {
+  width: 31px;
+  margin-right: 13px;
+}
+
+.title-wapper {
+  font-weight: bold;
+  color: var(--text-color7);
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.price-title {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.price {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-wapper {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.progress {
+  flex: 1;
+}
+
+.progress-text {
+  color: var(--text-color7);
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.h-tip {
+  text-align: center;
+  font-size: 12px;
+}
+
+.list-box {
+  max-height: 100px;
+  overflow: hidden;
+
+  .list-content {
+    animation: list 100s infinite linear;
+  }
+
+  @keyframes list {
+    to {
+      transform: translateY(-100%);
+    }
+  }
+}
+
+.list-item {
+  display: flex;
+  font-size: 12px;
+  margin-bottom: 20px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  color: var(--text-color6);
+
+  >div {
+    flex: 1;
+    flex-shrink: 0;
+    max-width: 33.33%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  div:nth-child(2) {
+    text-align: center;
+  }
+
+  div:last-child {
+    text-align: right;
+  }
+
+  .item-price {
+    color: var(--text-color1);
+
+    .unit {
+      font-style: italic;
+      color: var(--text-color5);
+      font-family: Impact;
+    }
+  }
+}
+
+.list-title {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 16px;
+}

@@ -1,0 +1,25 @@
+---
+description: Reuse shared form inputs, buttons, and countdown instead of copying TextInput styles
+globs: src/**/*.{tsx,ts,jsx,js}
+alwaysApply: false
+---
+
+# Form controls
+
+Standard fields and buttons live in `@/components/form-controls` and `@/components/chrome`. Use them for new screens and when touching an existing form. Do not paste another bordered `TextInput` or send-code button.
+
+- `TextField` — text, search, amount. `compact` is 44px, default is 48px. `bare` drops the box for inputs that sit inside an existing control. `fontSize` is a design pixel (the component scales it).
+- `PhoneField` — `+91` prefix. `PasswordField` — visibility toggle. `CodeField` — code input plus send button.
+- `PrimaryButton` — `variant` is `primary` (default), `outline`, or `accent`. `compact` matches a 44px field.
+- `InlineAction` — text action inside a field, such as login OTP send.
+- `useCountdown` from `@/hooks/use-countdown` — SMS resend timer. Do not copy the `setTimeout` countdown.
+
+```tsx
+<PhoneField label={t('loginModal.phoneLabel')} value={phone} onChangeText={setPhone} maxLength={10} />
+<CodeField label={t('loginModal.verificationLabel')} value={code} onChangeText={setCode} onSend={send} sendLabel={t('forgotPasswordFlow.sendCode')} tone="outline" />
+<PrimaryButton label={t('common.submit')} onPress={submit} loading={saving} />
+```
+
+Pass `error` for the red border and message. Keep one-off layout in the screen. If a control needs a new shared variant, add it to `form-controls.tsx` instead of restyling a local `TextInput`.
+
+Layout numbers still go through `scale` as `s()`. Do not scale `flex`, opacity, `fontWeight`, or `borderWidth: 1`.
